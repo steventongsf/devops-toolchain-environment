@@ -1,3 +1,9 @@
+# Overview
+Continuous integration environment using multiple local VMs to support:
+* Jenkins
+* Sonatype Nexus
+* Sonarqube
+# Setup
 ## Setup Jenkins
 ### Install Suggested Plugins
 ### Install Plugins
@@ -22,6 +28,18 @@
 * http://sonar01
 * admin/admin
 
+## Setup SSH Access to Github
+Generate key pair
+```
+ssh-keygen -t rsa
+```
+Add public key to you're account on Github
+Test key
+```
+ssh -T git@github.com
+```
+
+## Runtime
 ## Run local environment
 Start 
 ```
