@@ -9,6 +9,7 @@
 
 ## Setup Nexus
 * cat /opt/nexus/sonatype-work/nexus3/admin.password
+* http://nexus01:8081/login
 * Login admin
 * Set password (nexus)
 * create repos and repo group
@@ -18,7 +19,8 @@
   * sfhuskie-maven-group
 
 ## Setup Sonarqube
-Work in progress
+* http://sonar01
+* admin/admin
 
 ## Run local environment
 Start 
