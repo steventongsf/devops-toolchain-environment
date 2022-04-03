@@ -28,7 +28,7 @@ Vagrant.configure("2") do |config|
         sonar.vm.provision "shell", path: "sonar.sh"  
         sonar.vm.provider "virtualbox" do |vb|
             vb.cpus = 2
-            vb.memory = "2048"
+            vb.memory = "4096"
       end    
     end   
 end
