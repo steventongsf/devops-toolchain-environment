@@ -1,8 +1,18 @@
 # Overview
-Continuous integration environment using multiple local VMs to support:
+This project contains a completely integrated Devops toolset managed by Vagrant. It consists of several Virtual Machines which host the following services
 * Jenkins
 * Sonatype Nexus
 * Sonarqube
+
+In addition, this environment uses public instances of
+* Slack
+* Github
+
+The rest of the document describes:
+* Additional setup steps
+* Runtime instructions
+* Future To Dos
+
 
 # Setup
 Because this is a local environment, I am documenting the sensitive information so it can easily be recreated.  For shared environments such as in the cloud,  all these credentials should be kept in vaults such as those found in in AWS secrets manager.
