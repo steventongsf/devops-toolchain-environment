@@ -3,7 +3,9 @@ Continuous integration environment using multiple local VMs to support:
 * Jenkins
 * Sonatype Nexus
 * Sonarqube
+
 # Setup
+Because this is a local environment, I am documenting the sensitive information so it can easily be recreated.  For shared environments such as in the cloud,  all these credentials should be kept in vaults such as those found in in AWS secrets manager.
 ## Setup Jenkins
 Login: http://jenkins01:8080/login
 
@@ -23,6 +25,8 @@ Ensure there is a public address for github to push notifications to.  If this i
   * Content type: application/json
   * Select "Just the push event"
   * click "Update webhook"
+* Setup BUILD_TIMESTAMP format for versioning in Global Settings
+
 ### Configure Sonarqube
 * In Global tools, configure the Sonarqube scanner
 * In Global configurations, configure the Sonarqube server
@@ -56,6 +60,19 @@ Ensure there is a public address for github to push notifications to.  If this i
   * default quality gates should be successful
   * add quality gate (in Sonarqube server) to have >= 95% coverage.  Running pipeline should fail now
 
+## Setup Slack
+* Log in or create account in Slack
+* Under the context of a team (create a team as needed, sfhuskie), create a channel (jenkins-cicd)
+* Go to Apps and add "Jenkins CI"
+  * Post to Channel -> jenkins-cicd and click Add
+  * Copy Subdomain: sfhuskie
+  * Copy Token: rSaUQzB7TeQ7nPfxRkUIpHt3
+* Configure Slack in Jenkins with the subdomain and token
+  * create Jenkins credential (slack-jenkins-cicd)
+  * Configure Slack section in Settings
+
+
+
 
 ## Setup SSH Access to Github
 Generate key pair
@@ -67,11 +84,13 @@ Test key
 ```
 ssh -T git@github.com
 ```
+## Create repositories
 
 # Runtime
 ## Sample project for running a pipeline
 the following fork is from the Spring Boot reference project:
 http://github.com/steventongsf/spring-petclinic
+The master branch of this project will be used for the pipeline as stored in the project as Jenkinsfile.
 ## Run local environment
 Start 
 ```
