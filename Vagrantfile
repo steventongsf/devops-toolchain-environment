@@ -22,7 +22,7 @@ Vagrant.configure("2") do |config|
         end    
     end
     config.vm.define "sonar" do |sonar|
-        sonar.vm.box = "ubuntu/xenial64"
+        sonar.vm.box = "ubuntu/focal64"
         sonar.vm.hostname = "sonar01"
         sonar.vm.network "private_network", ip: "192.168.56.16"
         sonar.vm.provision "shell", path: "sonar.sh"  
