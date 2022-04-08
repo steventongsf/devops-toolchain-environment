@@ -2,7 +2,7 @@ Vagrant.configure("2") do |config|
     config.hostmanager.enabled = true 
     config.hostmanager.manage_host = true
     config.vm.define "jenkins" do |jenkins|
-        jenkins.vm.box = "ubuntu/xenial64"
+        jenkins.vm.box = "ubuntu/focal64"
         jenkins.vm.hostname = "jenkins01"
         jenkins.vm.network "private_network", ip: "192.168.56.15"
         jenkins.vm.provision "shell", path: "jenkins.sh"  
