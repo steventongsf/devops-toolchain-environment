@@ -12,7 +12,7 @@ Vagrant.configure("2") do |config|
         end
     end
     config.vm.define "nexus" do |nexus|
-        nexus.vm.box = "geerlingguy/centos7"
+        nexus.vm.box = "centos/7"
         nexus.vm.hostname = "nexus01"
         nexus.vm.network "private_network", ip: "192.168.56.14"
         nexus.vm.provision "shell", path: "nexus.sh"  
