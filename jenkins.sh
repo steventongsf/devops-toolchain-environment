@@ -1,6 +1,9 @@
 sudo add-apt-repository ppa:openjdk-r/ppa
+wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | apt-key add -
+sudo sh -c 'echo deb https://pkg.jenkins.io/debian-stable binary/ > \
+e>     /etc/apt/sources.list.d/jenkins.list'
 sudo apt-get update
-sudo apt-get install openjdk-11-jdk unzip -y 
+#sudo apt-get install openjdk-11-jdk unzip -y 
 sudo apt-get install openjdk-17-jdk -y 
 export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
 if [ -e /usr/bin/java ]; then
@@ -17,9 +20,10 @@ if [ -e /usr/bin/mvn ]; then
     sudo unlink /usr/bin/mvn
 fi
 sudo ln -s /usr/share/apache-maven-3.8.7/bin/mvn /usr/bin/mvn
-
-wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | apt-key add -
-sudo sh -c 'echo deb https://pkg.jenkins.io/debian-stable binary/ > \
-e>     /etc/apt/sources.list.d/jenkins.list'
-sudo apt-get update
 sudo apt-get install jenkins -y 
+#sleep 60
+#cd ~
+#if [ ! -e jenkins-cli.jar ]; then
+#    wget http://localhost:8080/jnlpJars/jenkins-cli.jar
+#fi
+#java -jar ./jenkins-cli.jar -s http://127.0.0.1:8080/ install-plugin <name>
