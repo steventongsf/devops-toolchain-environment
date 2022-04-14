@@ -21,6 +21,8 @@ Login: http://jenkins01:8080/login
 
 ### Install Suggested Plugins
 ### Install Plugins
+* Install recommended plugins
+Select addtional plugins
 * Build timestamp
 * Maven Integration
 * Maven Integration Pipeline
@@ -53,11 +55,11 @@ Ensure there is a public address for github to push notifications to.  If this i
   * sfhuskie-release
   * sfhuskie-snapshot
   * sfhuskie-maven-central
-  * sfhuskie-maven-group
+  * sfhuskie-maven-group (group containing above repos)
 
 ## Setup Sonarqube
 * Login: http://sonar01
-* admin/admin123
+* dfault: admin/admin123, new: admin/sonar
 * Go to sonarqube user settings
 * Select security
 * generate token: sqa_03184c0e3f41f75184c0fd1fbbc5ad8312177496
@@ -124,18 +126,25 @@ vagrant ssh <Vagrant name>
 ```
 
 
-# Notes
+# Jenkins Notes
 wget http://localhost:8080/jnlpJars/jenkins-cli.jar
 java -jar jenkins-cli.jar -s http://127.0.0.1:8080/ install-plugin <name>
 java -jar jenkins-cli.jar -s http://localhost:8080 -auth <username>:<password> install-plugin <plugin-1> <plugin-2>
 
+# Vagrant notes
+vagrant plugin install vagrant-vbguest
+
+
 # TODOs
 * Configure quality gates
 * Publish artifacts to Nexus
-* Create Vagrant images
-* Rename this project folder to match github repo
 * figure out how to install all the plugins from provisioning
 * Setup terraforming in AWS
+* work out autoinstalling guest extensions. see warning
+```
+ A Virtualbox Guest Additions installation was found but no tools to rebuild or start them.
+ ```
+
 
 
 
