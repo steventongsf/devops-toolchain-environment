@@ -136,6 +136,8 @@ vagrant plugin install vagrant-vbguest
 
 
 # TODOs
+* Add a proxy VM using nginx
+* Add certificates for SSL
 * Configure quality gates
 * Publish artifacts to Nexus
 * figure out how to install all the plugins from provisioning
