@@ -2,7 +2,7 @@ Vagrant.configure("2") do |config|
     config.hostmanager.enabled = true 
     config.hostmanager.manage_host = true
     config.vm.define "jenkins" do |jenkins|
-        jenkins.vm.box = "ubuntu/focal64"
+        jenkins.vm.box = "ubuntu/jammy64"
         jenkins.vm.hostname = "jenkins01"
         jenkins.vm.network "private_network", ip: "192.168.56.15"
         jenkins.vm.provision "shell", path: "jenkins.sh"  
@@ -12,7 +12,7 @@ Vagrant.configure("2") do |config|
         end
     end
     config.vm.define "nexus" do |nexus|
-        nexus.vm.box = "centos/7"
+        nexus.vm.box = "centos/stream9"
         nexus.vm.hostname = "nexus01"
         nexus.vm.network "private_network", ip: "192.168.56.14"
         nexus.vm.provision "shell", path: "nexus.sh"  
@@ -22,7 +22,7 @@ Vagrant.configure("2") do |config|
         end    
     end
     config.vm.define "sonar" do |sonar|
-        sonar.vm.box = "ubuntu/focal64"
+        sonar.vm.box = "ubuntu/jammy64"
         sonar.vm.hostname = "sonar01"
         sonar.vm.network "private_network", ip: "192.168.56.16"
         sonar.vm.provision "shell", path: "sonar.sh"  
