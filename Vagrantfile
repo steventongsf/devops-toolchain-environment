@@ -1,7 +1,7 @@
 Vagrant.configure("2") do |config|
     config.hostmanager.enabled = true 
     config.hostmanager.manage_host = true
-    #config.vm.boot_timeout
+    config.vm.boot_timeout = 600
     config.vm.define "nexus" do |nexus|
         nexus.vm.box = "ubuntu/jammy64"
         #nexus.vm.box_version = "20230710.0"
@@ -30,7 +30,7 @@ Vagrant.configure("2") do |config|
         sonar.vm.provision "shell", path: "sonar.sh"  
         sonar.vm.provider "virtualbox" do |vb|
             vb.cpus = 2
-            vb.memory = "4096"
+            vb.memory = "2048"
       end    
     end   
 end

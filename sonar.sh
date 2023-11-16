@@ -13,7 +13,7 @@ sonarqube   -   nproc    409
 EOT
 sudo add-apt-repository ppa:openjdk-r/ppa
 sudo apt-get update -y
-sudo apt-get install openjdk-11-jdk -y
+sudo apt-get install net-tools openjdk-17-jdk -y
 sudo update-alternatives --config java
 
 java -version
@@ -36,10 +36,12 @@ systemctl status -l   postgresql
 netstat -tulpena | grep postgres
 sudo mkdir -p /sonarqube/
 cd /sonarqube/
-sudo curl -O https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-9.8.0.63668.zip
+SONAR=sonarqube-10.3.0.82913
+SONAR_ZIP=$SONAR.zip
+sudo curl -O https://binaries.sonarsource.com/Distribution/sonarqube/$SONAR_ZIP
 sudo apt-get install zip -y
-sudo unzip -o sonarqube-9.8.0.63668 -d /opt/
-sudo mv /opt/sonarqube-9.8.0.63668/ /opt/sonarqube
+sudo unzip -o $SONAR -d /opt/
+sudo mv /opt/$SONAR/ /opt/sonarqube
 sudo groupadd sonar
 sudo useradd -c "SonarQube - User" -d /opt/sonarqube/ -g sonar sonar
 sudo chown sonar:sonar /opt/sonarqube/ -R
